@@ -3,19 +3,39 @@
   require "templates/header.php"
 ?>
 <!-- Post -->
-<main class="container p-4 bg-light mt-3">
-    <!-- Basic Bootstrap 5 Card -->
-    <div class="card border-0 mt-3" id="">
-      <img src="imageurl" class="card-img-top post-image" alt="">
-      <div class="card-body">
-        <h5 class="card-title">MovieTitle</h5>
-        <p class="card-text">Review</p>
-        <a href="websiteurl" class="btn btn-primary w-100">Image URL</a>
-        <!-- Admin Buttons: User Logged In -->
-        <div class="admin-btn">
-          <a href="editpost.php" class="btn btn-secondary mt-2">Edit</a>
-          <a href="includes/deletepost.inc.php" class="btn btn-danger mt-2">Delete</a>
-        </div>
-      </div>
-    </div>
-  </main>
+<form action="./includes/createpost.inc.php" method="POST">
+    <div class="background">
+      <div class="container-about">
+        <div class="screen">
+          <div class="screen-header">
+            <div class="screen-header-left">
+              <div class="screen-header-button close"></div>
+              <div class="screen-header-button maximize"></div>
+              <div class="screen-header-button minimize"></div>
+            </div>
+            <div class="screen-header-right">
+              <div class="screen-header-ellipsis"></div>
+              <div class="screen-header-ellipsis"></div>
+              <div class="screen-header-ellipsis"></div>
+            </div>
+          </div>
+          <div class="screen-body">
+            <div class="screen-body-item left">
+              <div class="app-title">
+              <div class="app-title">
+                <span>Reviews</span>
+              </div>
+          <!--  -->
+          <div class="screen-body-item">
+                <div class="app-form">
+                  <div class="app-form-group">
+                  <img src="ImageURL" class="card-img-top post-image" alt="">
+                  <h3>MovieTitle</h3> 
+                  <p>Review</p>
+                  <div class="admin-btn">
+                  <a href="editpost.php" class="btn btn-secondary mt-2">Edit</a>
+                  <a href="includes/deletepost.inc.php" class="btn btn-danger mt-2">Delete</a>
+                  </div>
+                  </div>
+                  </div>
+                  </div>

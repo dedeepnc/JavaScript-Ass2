@@ -59,7 +59,7 @@
           // (i) Checks global $_SESSION variable to see if user is logged in & display Logout Button
           echo '<li class="menu-item">
           <form action="./includes/logout.inc.php" action="POST">
-            <a class="menu-item"><button type="submit" class="menu-item lockIcon" name="logout-submit">Logout</button></a>
+            <a class="menu-item"><button type="submit" class="menu-item-lockIcon" name="logout-submit">Logout</button></a>
           </form>
         </li>';
         } else {

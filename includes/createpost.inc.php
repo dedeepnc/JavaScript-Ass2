@@ -1,43 +1,43 @@
-  <?php 
-    session_start();
-    if(isset($_POST['post-submit']) && isset($_SESSION['userId'])){
-      // MY POST SUBMISSION SCRIPT EXECUTES
-      require './connect.inc.php';
+<?php 
+session_start();
+if(isset($_POST['post-submit']) && isset($_SESSION['userId'])){
+  require './connect.inc.php'; // Make sure this includes your database connection
 
-      // Store form data to local variables
-      $title = $_POST['MovieTitle'];
-      $imageUrl = $_POST['ImageURL'];
-      $comment = $_POST['ReviewText'];
-      $rating = $_POST['Rating'];      
+  // Get the user's ID from the session or wherever it's stored
+  $uid = $_SESSION['userId'];
 
-      // Validation: empty fields
-      // if(empty($title) || empty($imageUrl) || empty($comment) || empty($rating)){
-      //   header("Location: ../createpost.php?error=emptyfields");
-      //   exit();
-      // }
+  // Store form data to local variables
+  $title = $_POST['MovieTitle'];
+  $imageUrl = $_POST['ImageURL'];
+  $comment = $_POST['ReviewText'];
+  $rating = $_POST['Rating'];
 
-      // INSERT DATA into POSTS using prepared statements (5 steps) 
-      // Templating
-      $sql= "INSERT INTO tblPosts(id, uidUser, MovieTitle, ImageURL, ReviewText, Rating) VALUES (NULL, NULL, ?, ?, ?, ?)";
-      $statement = $conn->stmt_init();
-      if(!$statement->prepare($sql)){
-        header("Location: ../createpost.php?error=sqlerror");
-        exit();
-      }
+  // Validation: You may want to enable this input validation for data integrity
 
-      // Execution
-      $statement->bind_param("sssss", $uid, $title, $imageUrl, $comment, $rating);
-      $statement->execute();
-      if($statement->error){
-        header("Location: ../createpost.php?error=servererror");
-        exit();
-      } 
-      // SUCCESSFUL SUBMISSION:
-      header("Location: ../posts.php?post=success");
-      exit();
+  // INSERT DATA into POSTS using prepared statements (5 steps) 
+  // Templating
+  $sql = "INSERT INTO tblPosts(id, uidUser, MovieTitle, ImageURL, ReviewText, Rating) VALUES (NULL, ?, ?, ?, ?, ?)";
+  $statement = $conn->stmt_init();
 
-    } else {
-      header("Location: ../createpost.php?error=forbidden");
-      exit();
-    }
-  ?>
+  if(!$statement->prepare($sql)){
+    header("Location: ../createpost.php?error=sqlerror");
+    exit();
+  }
+
+  // Execution
+  $statement->bind_param("sssss", $uid, $title, $imageUrl, $comment, $rating);
+  $statement->execute();
+
+  if($statement->error){
+    header("Location: ../createpost.php?error=servererror");
+    exit();
+  } 
+
+  // SUCCESSFUL SUBMISSION:
+  header("Location: ../post.php?post=success");
+  exit();
+} else {
+  header("Location: ../createpost.php?error=forbidden");
+  exit();
+}
+?>
