@@ -5,7 +5,7 @@ if(isset($_POST['post-submit']) && isset($_SESSION['userId'])){
 
   // Get the user's ID from the session or wherever it's stored
   $uid = $_SESSION['userId'];
-
+  $postId = $_SESSION['id'];
   // Store form data to local variables
   $title = $_POST['MovieTitle'];
   $imageUrl = $_POST['ImageURL'];

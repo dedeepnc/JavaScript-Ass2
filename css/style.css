@@ -510,7 +510,131 @@ button, input {
 .rate > label:hover ~ input:checked ~ label {
   color: #c59b08;
 }
-/* MOVIES */
+
+/* Showcase Movies */
+img {
+  max-width: 100%;
+  border: 10px;
+}
+h2 {
+  margin-bottom: 48px;
+  padding-bottom: 16px;
+  font-size: 30px;
+  line-height: 28px;
+  font-weight: 500;
+  position: relative;
+  text-transform: capitalize;
+  font-family: ;
+  color: #44403c;
+  font-family: 'Josefin Sans';
+}
+h3 {
+  margin: 0 0 10px;
+  font-size: 28px;
+  line-height: 36px;
+}
+
+.movie-section {
+  padding: 60px 50px;
+}
+
+.movie-section .item {
+  
+  width: 320px;
+  height: 400px;
+  display: flex;
+  align-items: flex-end;
+  background: #343434 no-repeat center center / cover;
+  border-radius: 16px;
+  cursor: pointer;
+}
+
+.movie-section .item-desc {
+  padding: 0 24px 12px;
+  color: #fff;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+.movie-section .item.active .item-desc {
+  transform: none;
+}
+.owl-carousel {
+  display: flex;
+  justify-content: space-between;
+}
+
+.owl-carousel .item {
+  flex: 0 0 calc(50% - 10px); 
+}
+
+.item {
+  transition: transform 0.3s ease-in-out;
+}
+
+.item:hover {
+  transform: scale(1.05);
+}
+.play-button {
+  background-color: #93c5fd; 
+  color: #fff; 
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin-top: 10px; 
+  cursor: pointer;
+  transition: background-color 0.3s; 
+}
+
+.play-button:hover {
+  background-color: #60a5fa;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+}
+
+.modal__overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 1;
+}
+
+.modal__wrapper {
+  position: relative;
+  width: 100%; 
+  height: 450px;
+  max-width: 800px; 
+  margin: 80px auto; 
+  padding: 15px;
+  box-sizing: border-box;
+  z-index: 2; 
+}
+
+#videoIframe {
+  width: 100%;
+  height: 100%;
+}
+
+.modal__overlay {
+  cursor: pointer;
+}
+
+
+
+/* Slider Movies */
 .main-header{
   color: #44403c;
   display: block;
@@ -600,6 +724,7 @@ button, input {
   letter-spacing: -1px;
   margin-bottom: 38px;
   font-family: 'Josefin Sans';
+  text-decoration: none;
 }
 
 .btn-watch{
@@ -614,5 +739,3 @@ button, input {
   bottom: 0;
   margin-bottom: 10px;
 }
-
-/* POST */
