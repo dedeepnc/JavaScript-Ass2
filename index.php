@@ -246,4 +246,6 @@
 </body>
 
 </html>
-   
+<?php 
+  require "templates/footer.php"
+?>

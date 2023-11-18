@@ -34,6 +34,9 @@
           <a href="movies.php">Movies</a>
         </li>
         <li class="menu-item">
+          <a href="upload.php">Upload</a>
+        </li>
+        <li class="menu-item">
           <a href="post.php">Post</a>
         </li>
         <!-- Conditional Create Post Button -->

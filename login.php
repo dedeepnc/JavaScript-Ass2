@@ -46,6 +46,12 @@
         </div>
       </div>
     </div>
+    <?php 
+  require "templates/footer.php"
+    ?>
     </form>
+
+
   </body>
+
   

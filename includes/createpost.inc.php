@@ -3,7 +3,6 @@ session_start();
 if(isset($_POST['post-submit']) && isset($_SESSION['userId'])){
   require './connect.inc.php'; // Make sure this includes your database connection
 
-  // Get the user's ID from the session or wherever it's stored
   $uid = $_SESSION['userId'];
   $postId = $_SESSION['id'];
   // Store form data to local variables

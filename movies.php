@@ -18,3 +18,7 @@
       <p id="error">Error message</p>
     </div>
     <div id="movies" class="movies"></div>
+
+    <?php 
+  require "templates/footer.php"
+?>

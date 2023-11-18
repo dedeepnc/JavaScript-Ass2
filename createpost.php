@@ -83,4 +83,8 @@
         </div>
       </div>
     </div>
+    <!-- FOOTER.PHP -->
+<?php 
+  require "./templates/footer.php"
+?>
   </form>
