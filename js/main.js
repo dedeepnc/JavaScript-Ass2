@@ -1,11 +1,11 @@
 document.addEventListener("DOMContentLoaded", function () {
-  const search = document.querySelector("#search");
-  const searchBtn = document.querySelector("#searchBtn");
-  const movies = document.querySelector(".movies");
-  const errorMessage = document.querySelector("#error");
-  errorMessage.style.display = "none";
+  const search = document.querySelector("#search");// Input field for search query
+  const searchBtn = document.querySelector("#searchBtn");// Button to trigger search
+  const movies = document.querySelector(".movies");// Container for displaying movies
+  const errorMessage = document.querySelector("#error");// Error message element
+  errorMessage.style.display = "none";// Hide error message initially
 
-  const apikey = 'eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIxZjc4ZDNmMTFkZDQzODFhZDRkYmQwMjc2MGUzNWEyYSIsInN1YiI6IjY1M2RlYTdmY2M5NjgzMDE0ZWI5NzQ3MSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.Zh3uZfltLYQnDEQMwFL6ZH3-fwnWVH7J92lvmgaLJwk'; // Replace with your actual API key
+  const apikey = 'eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIxZjc4ZDNmMTFkZDQzODFhZDRkYmQwMjc2MGUzNWEyYSIsInN1YiI6IjY1M2RlYTdmY2M5NjgzMDE0ZWI5NzQ3MSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.Zh3uZfltLYQnDEQMwFL6ZH3-fwnWVH7J92lvmgaLJwk'; 
 
   // Function to fetch and display popular movies
   function loadPopularMovies() {
@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", function () {
       .catch(err => console.error(err));
   }
 
-  // Function to display movies
+  // Function to display movies :  Renders movies on the webpage based on fetched data.
   function displayMovies(moviesData) {
     errorMessage.style.display = "none";
     console.log(moviesData);
@@ -34,10 +34,10 @@ document.addEventListener("DOMContentLoaded", function () {
       errorMessage.style.display = "block";
       errorMessage.innerHTML = "No results found";
     }
-    movies.innerHTML = '';
+    movies.innerHTML = '';// Clear movies container
 
     moviesData.forEach(movie => {
-      const movieContainer = document.createElement("div");
+      const movieContainer = document.createElement("div");// Create elements to display movie details
       movieContainer.classList.add("movie");
 
       const title = document.createElement("h2");
@@ -62,7 +62,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Call the function to load popular movies when the page loads
   loadPopularMovies();
-
+  
+  // Load previous search results if available in local storage
   window.addEventListener("load", function () {
     const searchQuery = localStorage.getItem("searchQuery");
     if (searchQuery !== null) {
@@ -71,6 +72,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   })
 
+  // Handle search button click event
   searchBtn.addEventListener("click", function (event) {
     event.preventDefault();
 
@@ -81,7 +83,7 @@ document.addEventListener("DOMContentLoaded", function () {
       getSearch(query);
     }
   });
-
+  // Function: getSearch : Purpose Fetches movies based on search query and displays them.
   function getSearch(query) {
     const options = {
       method: 'GET',

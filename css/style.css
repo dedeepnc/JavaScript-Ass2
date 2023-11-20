@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@500&display=swap');
 
+
 body{
   background-color: #edece7;
 }
@@ -513,6 +514,16 @@ button, input {
   color: #c59b08;
 }
 
+/* Rating Post*/
+.ratingPost{
+  float: left;
+  height: 46px;
+  padding: 0 10px;
+  color: #ffc700;
+  
+  
+}
+
 
 /* Showcase Movies */
 img {
@@ -767,3 +778,43 @@ footer p {
   text-decoration: none;
 }
 
+.description {
+  background-color: #E4A9A8; 
+  color: #721c24; 
+  padding: 1rem; 
+  border-radius: 0.25rem; 
+  margin-bottom: 1rem; 
+  border: 1px solid #f5c6cb; 
+}
+
+.title-word {
+  animation: color-animation 4s linear infinite;
+}
+
+.title-word-1 {
+  --color-1: #ACCFCB;
+  --color-2: #E4A9A8;
+  --color-3: #ACCFCB;
+}
+
+@keyframes color-animation {
+  0%    {color: var(--color-1)}
+  32%   {color: var(--color-1)}
+  33%   {color: var(--color-2)}
+  65%   {color: var(--color-2)}
+  66%   {color: var(--color-3)}
+  99%   {color: var(--color-3)}
+  100%  {color: var(--color-1)}
+  /* var() CSS function can be used to insert the value of a custom property (sometimes called a "CSS variable") instead of any part of a value of another property.*/
+}
+
+.title-word {
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 800;
+  font-size: 40px;
+  justify-content: center;
+  text-align: center;
+  text-transform: uppercase;
+  padding-top: 20px;
+  margin-left: 4rem
+}

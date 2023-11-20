@@ -60,7 +60,7 @@
                 <!-- Rating -->
                 <div class="app-form-group">
                   <div class="mb-3">
-                    <div class="rate" name="Rating">';
+                    <div class="ratingPost" name="Rating">';
 
                       $rating = intval($row['Rating']);
                       for ($i = 5; $i >= 1; $i--) {

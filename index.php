@@ -6,6 +6,42 @@
   <body>
   <link rel="stylesheet" href="path/to/font-awesome/css/all.min.css">
   <!-- Showcase Movies -->
+   <?php
+   if (isset($_GET['loginerror'])) {
+     // loginerror=forbidden
+     if ($_GET['loginerror'] == 'forbidden') {
+       $errorMsg = "Access denied - please submit form correctly";
+     }
+     // loginerror=emptyfields
+     else if ($_GET['loginerror'] == 'emptyfields') {
+       $errorMsg = "Please fill in all fields";
+     }
+     // loginerror=sqlerror || loginerror=servererror
+     else if ($_GET['loginerror'] == "sqlerror" || $_GET['loginerror'] == "servererror") {
+       $errorMsg = "An internal server error has occurred - please try again later";
+     }
+     // loginerror=nouser
+     else if ($_GET['loginerror'] == "nouser") {
+       $errorMsg = "The user does not exist";
+     }
+     // loginerror=wrongpwd
+     else if ($_GET['loginerror'] == "wrongpwd") {
+       $errorMsg = "Wrong password";
+     }
+ 
+     // Echo Back Danger Alert with the Dynamic Error Message as we definitely have an error!
+     echo '<div class="alert alert-danger" role="alert">' . $errorMsg . '</div>';
+   } else if (isset($_GET['login'])) {
+     echo '<div class="alert alert-success" role="alert">You have logged in!</div>';
+   }
+        if (isset($_SESSION['userId'])) {
+          echo '<div class="title-word title-word-1">Welcome to Movie Mania ' . ucfirst($_SESSION['userUid']) . '</div>';
+        } else {
+          echo '<div class="description">You are not logged in</div>';
+        }
+
+   ?>
+ 
 <section class="movie-section">
   <h2 class="line-title">Popular Movies</h2>
   <div class="owl-carousel custom-carousel owl-theme">
